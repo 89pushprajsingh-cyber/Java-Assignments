@@ -1,0 +1,199 @@
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Programming Lab (BCS-154) - Assignment</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Times New Roman alternative / Serif & Inter for UI -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;500;600;700&family=Times+New+Roman&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Document A4 proportions and print-friendly styles */
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f3f4f6;
+        }
+
+        .page-container {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 20mm;
+            margin: 10mm auto;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        /* Outer Double Border standard for formal academic submission covers */
+        .academic-border {
+            border: 3px double #1e293b;
+            padding: 15mm 10mm;
+            height: 100%;
+            min-height: calc(297mm - 40mm);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+
+        .yellow-banner {
+            background-color: #FFD700;
+            border: 2px solid #000000;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .page-container {
+                box-shadow: none;
+                margin: 0;
+                width: 100%;
+                height: 100vh;
+                page-break-after: always;
+            }
+        }
+
+        /* Mobile responsiveness adjustments */
+        @media (max-width: 768px) {
+            .page-container {
+                width: 95%;
+                min-height: auto;
+                padding: 15px;
+                margin: 10px auto;
+            }
+            .academic-border {
+                padding: 15px 10px;
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-900 leading-relaxed">
+
+    <!-- Action Toolbar (Hidden during Print) -->
+    <div class="no-print fixed top-4 right-4 z-50 flex gap-3">
+        <button onclick="window.print()" class="bg-blue-600 hover:bg-blue-700 text-white font-sans font-semibold py-2 px-5 rounded-lg shadow-md transition flex items-center gap-2 text-sm">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+            Print / Save PDF
+        </button>
+    </div>
+
+    <!-- PAGE 1: COVER PAGE -->
+    <div class="page-container">
+        <div class="academic-border">
+            
+            <!-- Header Section -->
+            <div class="text-center space-y-4">
+                <!-- Crest / Logo Placeholder -->
+                <div class="flex justify-center mb-2">
+                    <div class="w-20 h-20 border-2 border-slate-800 rounded-full flex items-center justify-center bg-amber-50 shadow-inner">
+                        <span class="font-bold text-2xl tracking-widest text-slate-800">IU</span>
+                    </div>
+                </div>
+                
+                <h1 class="text-2xl md:text-3xl font-extrabold tracking-wider text-slate-900 uppercase" style="font-family: 'Cinzel', serif;">
+                    Invertis University Bareilly
+                </h1>
+                <div class="h-0.5 bg-slate-800 w-3/4 mx-auto my-2"></div>
+            </div>
+
+            <!-- Subject Details -->
+            <div class="text-center my-auto py-8 space-y-6">
+                <h2 class="text-2xl md:text-3xl font-bold uppercase tracking-wide text-slate-900">
+                    JAVA PROGRAMMING LAB (BCS-154)
+                </h2>
+                
+                <h3 class="text-lg md:text-xl font-semibold tracking-wide text-slate-800">
+                    B.Tech CSE 1<sup>st</sup> SEMESTER
+                </h3>
+            </div>
+
+            <!-- Submission Footer Box -->
+            <div class="mt-auto">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-0 yellow-banner shadow-sm">
+                    <!-- Submitted To -->
+                    <div class="p-4 border-b sm:border-b-0 sm:border-r border-black flex flex-col justify-between">
+                        <span class="font-extrabold text-sm uppercase tracking-wider block mb-2 text-black">
+                            SUBMITTED TO:
+                        </span>
+                        <span class="font-bold text-base md:text-lg text-slate-900 uppercase">
+                            MR. SATYAM JAISWAL
+                        </span>
+                    </div>
+
+                    <!-- Submitted By -->
+                    <div class="p-4 flex flex-col justify-between">
+                        <span class="font-extrabold text-sm uppercase tracking-wider block mb-2 text-black">
+                            SUBMITTED BY:
+                        </span>
+                        <span class="font-bold text-base md:text-lg text-slate-900 uppercase">
+                           PUSHPRAJ SINGH
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- PAGE 2: INDEX / TABLE OF CONTENTS -->
+    <div class="page-container">
+        <div class="academic-border flex-col justify-start">
+            
+            <!-- Index Header -->
+            <div class="text-center mb-6">
+                <h2 class="text-xl md:text-2xl font-bold uppercase tracking-widest border-b-2 border-black inline-block pb-1">
+                    INDEX / TABLE OF CONTENTS
+                </h2>
+            </div>
+
+            <!-- Table -->
+            <div class="w-full overflow-x-auto">
+                <table class="w-full border-collapse border-2 border-black text-left font-serif text-sm md:text-base">
+                    <thead>
+                        <tr class="bg-gray-100 border-b-2 border-black">
+                            <th class="border border-black p-2 text-center w-14 font-bold">SN.</th>
+                            <th class="border border-black p-2 font-bold">PROGRAM NAME</th>
+                            <th class="border border-black p-2 text-center w-16 font-bold">PAGE</th>
+                            <th class="border border-black p-2 text-center w-24 font-bold">DATE</th>
+                            <th class="border border-black p-2 text-center w-24 font-bold">SIGN.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Row 1 -->
+                        <tr class="h-12 border-b border-black">
+                            <td class="border border-black p-2 text-center font-semibold">01</td>
+                            <td class="border border-black p-2 font-semibold">Hello World, Variables and Arithmetic</td>
+                            <td class="border border-black p-2 text-center font-semibold">01</td>
+                            <td class="border border-black p-2 text-center">02-11-2026</td>
+                            <td class="border border-black p-2 text-center"></td>
+                        </tr>
+                        <!-- Empty Rows for expansion -->
+                        <tr class="h-12 border-b border-black"><td class="border border-black p-2 text-center">02</td><td class="border border-black p-2"></td><td class="border border-black p-2"></td><td class="border border-black p-2"></td><td class="border border-black p-2"></td></tr>
+                        <tr class="h-12 border-b border-black"><td class="border border-black p-2 text-center">03</td><td class="border border-black p-2"></td><td class="border border-black p-2"></td><td class="border border-black p-2"></td><td class="border border-black p-2"></td></tr>
+                        <tr class="h-12 border-b border-black"><td class="border border-black p-2 text-center">04</td><td class="border border-black p-2"></td><td class="border border-black p-2"></td><td class="border border-black p-2"></td><td class="border border-black p-2"></td></tr>
+                        <tr class="h-12 border-b border-black"><td class="border border-black p-2 text-center">05</td><td class="border border-black p-2"></td><td class="border border-black p-2"></td><td class="border border-black p-2"></td><td class="border border-black p-2"></td></tr>
+                        <tr class="h-12 border-b border-black"><td class="border border-black p-2 text-center">06</td><td class="border border-black p-2"></td><td class="border border-black p-2"></td><td class="border border-black p-2"></td><td class="border border-black p-2"></td></tr>
+                        <tr class="h-12 border-b border-black"><td class="border border-black p-2 text-center">07</td><td class="border border-black p-2"></td><td class="border border-black p-2"></td><td class="border border-black p-2"></td><td class="border border-black p-2"></td></tr>
+                        <tr class="h-12 border-b border-black"><td class="border border-black p-2 text-center">08</td><td class="border border-black p-2"></td><td class="border border-black p-2"></td><td class="border border-black p-2"></td><td class="border border-black p-2"></td></tr>
+                        <tr class="h-12 border-b border-black"><td class="border border-black p-2 text-center">09</td><td class="border border-black p-2"></td><td class="border border-black p-2"></td><td class="border border-black p-2"></td><td class="border border-black p-2"></td></tr>
+                        <tr class="h-12 border-b border-black"><td class="border border-black p-2 text-center">10</td><td class="border border-black p-2"></td><td class="border border-black p-2"></td><td class="border border-black p-2"></td><td class="border border-black p-2"></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
